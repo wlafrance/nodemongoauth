@@ -1,11 +1,12 @@
 const express = require("express");
-const app = express("");
+
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
 // Import Routes
 const authRoute = require("./routes/auth");
 
+const app = express("");
 dotenv.config();
 
 // Connect to DB
