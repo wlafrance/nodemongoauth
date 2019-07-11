@@ -9,14 +9,20 @@ const authRoute = require("./routes/auth");
 dotenv.config();
 
 // Connect to DB
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
+const dbConn = "mongodb://deved:deved123@ds049641.mlab.com:49641/vue_express";
+
+//const dbConn =
+// "mongodb+srv://deved:deved11@cluster0-opihy.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(dbConn, { useNewUrlParser: true }, () =>
   console.log("connected to db!")
 );
 
-// Middlewares
+//middleware
+
 app.use(express.json());
 
-// Router Middlewares
+//routes
+
 app.use("/api/user", authRoute);
 
-app.listen(3000, () => console.log("Server is up and running"));
+app.listen(3000, () => console.log("Server up and running"));
